@@ -146,7 +146,6 @@
 
       <div class="profile">
         <img src="{% static 'assets/img/pic.jpg' %}" alt="" class="img-fluid rounded-circle">
-        {% comment %} <h1 class="text-light-Foldit"><a href="#">Vinit Pol {{user.username}}</a></h1> {% endcomment %}
         <h1 class="text-light-Foldit" style="font-family: 'Foldit', sans-serif; font-size: 40px; font-weight: 700; color: #ffffff;">
           
           
@@ -166,16 +165,16 @@
 
       <nav id="navbar" class="nav-menu navbar">
         <ul>
-          <li><a href="/" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="/about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
+          <li><a href="/" class="{% if request.path == '/' %}active{% endif %}"><i class="bx bx-home"></i> <span>Home</span></a></li>
+          <li><a href="/about" class="{% if request.path == '/about' %}active{% endif %}"><i class="bx bx-user"></i> <span>About</span></a></li>
        
-          <li><a href="/project" class="nav-link scrollto"><i class="bx bx-briefcase"></i> <span>Projects</span></a></li>
+          <li><a href="/project" class="{% if request.path == '/project' %}active{% endif %}"><i class="bx bx-briefcase"></i> <span>Projects</span></a></li>
         
-          <li><a href="/certification" class="nav-link scrollto"><i class="bx bx-medal"></i> <span>Certification </span></a></li>
+          <li><a href="/certification" class="{% if request.path == '/certification' %}active{% endif %}"><i class="bx bx-medal"></i> <span>Certification </span></a></li>
 
           
 
-          <li><a href="/contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact Me</span></a></li>
+          <li><a href="/contact" class="{% if request.path == '/contact' %}active{% endif %}"><i class="bx bx-envelope"></i> <span>Contact Me</span></a></li>
 
 
 {% comment %} {% if not request.user.is_authenticated %}

@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-h&ottc0cz!eq%5fspy&cvyxk&uu6zmo$_!u7!(-tq++!rxw_cs'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["*",".vercel.app"]
+ALLOWED_HOSTS = ["*",".vercel.app",".railway.app"]
 
 
 # Application definition
@@ -56,7 +56,7 @@ ROOT_URLCONF = 'project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [BASE_DIR ,"templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,11 +117,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 import os
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR ,'static/')
+    os.path.join(BASE_DIR ,'static')
 ]
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
@@ -134,5 +134,22 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # settings.py
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+
 # Added Manually
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+# STATICSTORAGE = 'whitenoise.storage.CompressMainfestStaticFilesStorage'
+
+# import os
+
+# SECRET_KEY = os.environ.get('SECRET_KEY')
+# DATABASE_URL = os.environ.get('DATABASE_URL')
+
+# Email_Added_Manually
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_SSL = False
+EMAIL_HOST_USER = 'vinitpol45@gmail.com'
+EMAIL_HOST_PASSWORD = 'Vinit#9028'
+EMAIL_USE_TLS = True

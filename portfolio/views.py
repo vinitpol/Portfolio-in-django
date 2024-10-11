@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from django.core.mail import send_mail
 
 # Create your views here.
 def home(request):
@@ -16,8 +17,8 @@ def project(request):
 def resume(request):
     return render(request,'resume.html')
 
-# def contact(request):
-#     return render(request,'contact.html')
+def contact(request):
+    return render(request,'contact.html')
 
 # views.py
 from django.shortcuts import render, redirect
@@ -36,8 +37,9 @@ def contact_view(request):
         send_mail(
             subject=f"Contact Form Submission from {name}",
             message=f"Message: {message}\n\nPhone: {phone}\nEmail: {email}",
-            from_email=email,
-            recipient_list=['vinitpol2000@gmail.com'],
+            from_email='vinitpol45@gmail.com',
+            recipient_list=[email],
+            
         )
 
         # Add a success message
@@ -47,3 +49,9 @@ def contact_view(request):
         return redirect('contact')  # Replace 'contact' with the name of your URL pattern for the contact page
 
     return render(request, 'contact.html')
+    
+
+
+
+
+
